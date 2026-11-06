@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'main';
+    src: url('fonts/title.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'body';
+    src: url('fonts/body.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 20px;
+    background: #f8f4ed;
+    color: #292620;
+    font-family: main;
+}
+
+.container {
+    max-width: 650px;
+    margin: auto;
+}
+
+.logo {
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #a17d91;
+    zoom: 3;
+}
