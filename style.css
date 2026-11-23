@@ -31,3 +31,40 @@ body {
     color: #a17d91;
     zoom: 3;
 }
+
+header p {
+    color: #77716b;
+    font-size: 15px;
+}
+
+.search-box {
+    background: white;
+    border: 1px solid #e9e2d9;
+    border-radius: 14px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.search-row {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid #ded7cf;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+button {
+    background: #dba9bf;
+    color: #382630;
+    cursor: pointer;
+    font-size: 14px;
+}
