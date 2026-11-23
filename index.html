@@ -11,6 +11,39 @@
     <body>
         <h1>born2slack</h1>
         <img class="cake" src="images/cake.png" alt="birthday cake">
-        <a href="/login">sign in with Hack Club</a>
+        <a id="signin" href="#">sign in with Hack Club</a>
+        <p id="hi" hidden>hi <a id="signout" href="#">sign out</a></p>
+        <script type="module">
+            import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+            const supabase = createClient(
+                'https://cobkwbarjxzzvikmehgf.supabase.co',
+                'sb_publishable_pfqgCeCvhBxx3Qn6hL17Ng_jcioVjsV'
+            );
+
+            document.getElementById('signin').onclick = (e) => {
+                e.preventDefault();
+                supabase.auth.signInWithOAuth({
+                    provider: 'custom:hackclub',
+                    options: { redirectTo: location.origin },
+                });
+            };
+
+            document.getElementById('signout').onclick = (e) => {
+                e.preventDefault();
+                supabase.auth.signOut();
+            }
+
+            supabase.auth.onAuthStateChange((event, session) => {
+            const user = session?.user;
+            document.getElementById('signin').hidden = !!user;
+            document.getElementById('hi').hidden = !user;
+            if (!user) return;
+
+            const info = user.user_metadata;
+            document.getElementById('name').textContent = info.given_name || info.name || 'Hack Clubber';
+            console.log('user:', user);
+            });
+        </script>
     </body>
 </html>
